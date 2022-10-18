@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="EditTextTheme">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/green</item>
+        <item name="colorControlHighlight">@color/green</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

@@ -1,8 +1,10 @@
-package com.dwm.juicymuscle;
+package com.dwm.juicymuscle.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.dwm.juicymuscle.R;
 
 public class HomeActivity extends AppCompatActivity {
 

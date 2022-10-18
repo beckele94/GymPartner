@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--couleurs perso-->
+    <color name="green">#3CFF00</color>
+    <color name="lightGrey">#323232</color>
+    <color name="greyBackground">#191919</color>
 </resources>
