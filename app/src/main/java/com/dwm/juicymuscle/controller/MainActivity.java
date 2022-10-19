@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        user = new User();
         setContentView(R.layout.activity_main);
 
         emailEditText = findViewById(R.id.main_edittext_email);
@@ -53,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 user.setEmail(emailEditText.getText().toString());
                 user.setMdp(mdpEditText.getText().toString());
-                if(user.verifyCred() == true){
+
+                if(user.verifyCred()){
                     Intent homeActivityIntent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(homeActivityIntent);
                 }

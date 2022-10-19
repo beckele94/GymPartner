@@ -25,6 +25,7 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="80dp"
         android:hint="E-mail"
+        android:drawableEnd="@drawable/ic_email"
         android:inputType="textEmailAddress"
         android:singleLine="true"
         android:theme="@style/EditTextTheme"/>
@@ -36,6 +37,7 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
         android:hint="Mot de passe"
+        android:drawableEnd="@drawable/ic_password"
         android:inputType="textPassword"
         android:singleLine="true"
         android:theme="@style/EditTextTheme"/>
