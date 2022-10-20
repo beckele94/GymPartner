@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        user = new User();
+        user = new User(getApplicationContext());
         setContentView(R.layout.activity_main);
 
         emailEditText = findViewById(R.id.main_edittext_email);
@@ -55,11 +55,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 user.setEmail(emailEditText.getText().toString());
                 user.setMdp(mdpEditText.getText().toString());
-
-                if(user.verifyCred()){
-                    Intent homeActivityIntent = new Intent(MainActivity.this, HomeActivity.class);
-                    startActivity(homeActivityIntent);
-                }
+                user.Login();
             }
         });
 
