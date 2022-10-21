@@ -56,7 +56,7 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/connexion"
         android:layout_marginTop="80dp"
-        android:textColor="@color/green"
+        android:textColor="@color/greyBackground"
         android:backgroundTint="@color/lightGrey"/>
     <Button
         android:id="@+id/main_button_inscription"

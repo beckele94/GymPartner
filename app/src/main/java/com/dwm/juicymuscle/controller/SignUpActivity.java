@@ -7,11 +7,11 @@ import android.view.Window;
 
 import com.dwm.juicymuscle.R;
 
-public class HomeActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_sign_up);
     }
 }

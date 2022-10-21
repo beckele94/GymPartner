@@ -1,7 +1,9 @@
 package com.dwm.juicymuscle.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,6 +11,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -53,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 if(!mdpEditText.getText().toString().isEmpty() && !s.toString().isEmpty()){
                     connexionButton.setEnabled(true);
+                    connexionButton.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.green));
+                }else{
+                    connexionButton.setEnabled(false);
+                    connexionButton.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.greyBackground));
                 }
             }
         });
@@ -71,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 if(!emailEditText.getText().toString().isEmpty() && !s.toString().isEmpty()){
                     connexionButton.setEnabled(true);
+                    connexionButton.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.green));
+                }else{
+                    connexionButton.setEnabled(false);
+                    connexionButton.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.greyBackground));
                 }
             }
         });
@@ -111,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
         sinscrireButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent signupActivityIntent = new Intent(MainActivity.this, SignUpActivity.class);
+                startActivity(signupActivityIntent);
             }
         });
     }
