@@ -4,14 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.dwm.juicymuscle.R;
+import com.dwm.juicymuscle.model.PutData;
 import com.dwm.juicymuscle.model.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mdpEditText;
     private Button connexionButton;
     private Button sinscrireButton;
+    private TextView errorMsg;
     private User user;
 
     @Override
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mdpEditText = findViewById(R.id.main_edittext_mdp);
         connexionButton = findViewById(R.id.main_button_connexion);
         sinscrireButton = findViewById(R.id.main_button_inscription);
+        errorMsg = findViewById(R.id.main_textviex_errormsg);
 
         connexionButton.setEnabled(false);
         emailEditText.addTextChangedListener(new TextWatcher() {
@@ -41,12 +46,32 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                errorMsg.setText("");
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                connexionButton.setEnabled(!s.toString().isEmpty());
+                if(!mdpEditText.getText().toString().isEmpty() && !s.toString().isEmpty()){
+                    connexionButton.setEnabled(true);
+                }
+            }
+        });
+        mdpEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                errorMsg.setText("");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!emailEditText.getText().toString().isEmpty() && !s.toString().isEmpty()){
+                    connexionButton.setEnabled(true);
+                }
             }
         });
 
@@ -55,7 +80,31 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 user.setEmail(emailEditText.getText().toString());
                 user.setMdp(mdpEditText.getText().toString());
-                user.Login();
+
+                Handler handler = new Handler();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] field = new String[2];
+                        String[] data = new String[2];
+                        field[0] = "email";
+                        field[1] = "password";
+                        data[0] = user.getEmail();
+                        data[1] = user.getMdp();
+                        PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/login.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            if(putData.onComplete()){
+                                String result = putData.getResult();
+                                if(result.equals("Login Success")) { //demarrage de l'activite Home si connexion reussie
+                                    Intent homeActivityIntent = new Intent(MainActivity.this, HomeActivity.class);
+                                    startActivity(homeActivityIntent);
+                                }else{
+                                    errorMsg.setText(result); //affichage du message d'erreur si connexion echouée
+                                }
+                            }
+                        }
+                    }
+                });
             }
         });
 

@@ -12,4 +12,5 @@
     <color name="green">#3CFF00</color>
     <color name="lightGrey">#323232</color>
     <color name="greyBackground">#191919</color>
+    <color name="redError">#940000</color>
 </resources>

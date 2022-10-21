@@ -1,3 +1,5 @@
+// src : https://github.com/VishnuSivadasVS/Advanced-HttpURLConnection
+
 package com.dwm.juicymuscle.model;
 
 import android.util.Log;
@@ -36,7 +38,7 @@ public class PutData extends Thread {
             httpURLConnection.setRequestMethod(this.method);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            OutputStream outputStream = httpURLConnection.getOutputStream();
+            OutputStream outputStream = httpURLConnection.getOutputStream(); //android ne permet pas par default la communication http (utiliser https) ==> network_security_config.xml + modif AndroidManifest.xml pour autoriser le trafic http vers ulysseguillot.fr
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, UTF8));
             StringBuilder post_data = new StringBuilder();
             for (int i = 0; i < this.field.length; i++) {

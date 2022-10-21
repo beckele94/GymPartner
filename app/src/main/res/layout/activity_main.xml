@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Connexion"
+        android:text="@string/connexion"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/white"/>
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="80dp"
-        android:hint="E-mail"
+        android:hint="@string/e_mail"
         android:drawableEnd="@drawable/ic_email"
         android:inputType="textEmailAddress"
         android:singleLine="true"
@@ -36,18 +36,25 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
-        android:hint="Mot de passe"
+        android:hint="@string/mot_de_passe"
         android:drawableEnd="@drawable/ic_password"
         android:inputType="textPassword"
         android:singleLine="true"
         android:theme="@style/EditTextTheme"/>
+
+    <TextView
+        android:id="@+id/main_textviex_errormsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:textColor="@color/redError"/>
 
     <Button
         android:id="@+id/main_button_connexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Connexion"
+        android:text="@string/connexion"
         android:layout_marginTop="80dp"
         android:textColor="@color/green"
         android:backgroundTint="@color/lightGrey"/>
@@ -56,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="S'inscrire"
+        android:text="@string/s_inscrire"
         android:textColor="@color/green"
         android:backgroundTint="@color/lightGrey"/>
 
