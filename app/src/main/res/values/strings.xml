@@ -6,4 +6,5 @@
     <string name="s_inscrire">S\'inscrire</string>
     <string name="accueil">Accueil</string>
     <string name="inscription">Inscription</string>
+    <string name="nom_d_utilisateur">Nom d\'utilisateur</string>
 </resources>

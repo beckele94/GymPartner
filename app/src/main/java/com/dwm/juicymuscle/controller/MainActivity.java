@@ -55,9 +55,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(!mdpEditText.getText().toString().isEmpty() && !s.toString().isEmpty()){
+                user.setEmail(emailEditText.getText().toString());
+                if(!mdpEditText.getText().toString().isEmpty() && !s.toString().isEmpty() && user.hasAValidEmail()){
                     connexionButton.setEnabled(true);
                     connexionButton.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.green));
+
                 }else{
                     connexionButton.setEnabled(false);
                     connexionButton.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.greyBackground));
@@ -77,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(!emailEditText.getText().toString().isEmpty() && !s.toString().isEmpty()){
+                user.setMdp(mdpEditText.getText().toString());
+                if(!emailEditText.getText().toString().isEmpty() && !s.toString().isEmpty() && user.hasAValidEmail()){
                     connexionButton.setEnabled(true);
                     connexionButton.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.green));
                 }else{
@@ -90,9 +93,6 @@ public class MainActivity extends AppCompatActivity {
         connexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.setEmail(emailEditText.getText().toString());
-                user.setMdp(mdpEditText.getText().toString());
-
                 Handler handler = new Handler();
                 handler.post(new Runnable() {
                     @Override
