@@ -19,7 +19,7 @@
         android:textColor="@color/white"/>
 
     <EditText
-        android:id="@+id/main_edittext_username"
+        android:id="@+id/signup_edittext_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
@@ -31,7 +31,7 @@
         android:theme="@style/EditTextTheme"/>
 
     <EditText
-        android:id="@+id/main_edittext_email"
+        android:id="@+id/signup_edittext_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
@@ -43,7 +43,7 @@
         android:theme="@style/EditTextTheme"/>
 
     <EditText
-        android:id="@+id/main_edittext_mdp"
+        android:id="@+id/signup_edittext_mdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
@@ -55,7 +55,7 @@
         android:theme="@style/EditTextTheme"/>
 
     <EditText
-        android:id="@+id/main_edittext_mdpconfirm"
+        android:id="@+id/signup_edittext_mdpconfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
@@ -67,20 +67,20 @@
         android:theme="@style/EditTextTheme"/>
 
     <TextView
-        android:id="@+id/main_textviex_errormsg"
+        android:id="@+id/signup_textviex_errormsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:textColor="@color/redError"/>
 
     <Button
-        android:id="@+id/main_button_inscription"
+        android:id="@+id/signup_button_inscription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
         android:text="@string/s_inscrire"
-        android:textColor="@color/green"
+        android:textColor="@color/greyBackground"
         android:backgroundTint="@color/lightGrey"/>
 
 </LinearLayout>

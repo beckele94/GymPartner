@@ -18,12 +18,10 @@ import java.util.regex.Pattern;
 public class User {
     private String email;
     private String mdp;
-    private Context context;
 
-    public User(Context context) {
+    public User() {
         email="";
         mdp="";
-        this.context = context;
     }
 
     public boolean hasAValidEmail(){

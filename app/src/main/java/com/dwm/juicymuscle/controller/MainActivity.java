@@ -3,16 +3,12 @@ package com.dwm.juicymuscle.controller;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,14 +28,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        user = new User(getApplicationContext());
+        user = new User();
         setContentView(R.layout.activity_main);
 
-        emailEditText = findViewById(R.id.main_edittext_email);
-        mdpEditText = findViewById(R.id.main_edittext_mdp);
+        emailEditText = findViewById(R.id.signup_edittext_email);
+        mdpEditText = findViewById(R.id.signup_edittext_mdp);
         connexionButton = findViewById(R.id.main_button_connexion);
-        sinscrireButton = findViewById(R.id.main_button_inscription);
-        errorMsg = findViewById(R.id.main_textviex_errormsg);
+        sinscrireButton = findViewById(R.id.signup_button_inscription);
+        errorMsg = findViewById(R.id.signup_textviex_errormsg);
 
         connexionButton.setEnabled(false);
         emailEditText.addTextChangedListener(new TextWatcher() {
