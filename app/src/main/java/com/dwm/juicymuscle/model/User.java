@@ -18,10 +18,12 @@ import java.util.regex.Pattern;
 public class User {
     private String email;
     private String mdp;
+    private String username;
 
     public User() {
         email="";
         mdp="";
+        username="";
     }
 
     public boolean hasAValidEmail(){
@@ -45,5 +47,13 @@ public class User {
 
     public void setMdp(String mdp) {
         this.mdp = mdp;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
