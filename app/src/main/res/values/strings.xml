@@ -1,4 +1,5 @@
 <resources>
+    <!-- Partie Connexion et Inscription -->
     <string name="app_name">JuicyMuscle</string>
     <string name="connexion">Connexion</string>
     <string name="e_mail">E-mail</string>
@@ -7,4 +8,23 @@
     <string name="accueil">Accueil</string>
     <string name="inscription">Inscription</string>
     <string name="nom_d_utilisateur">Nom d\'utilisateur</string>
+    <!--Partie Entrainement -->
+    <string name="editer">Edit</string>
+    <string name="prochain_exercice">Prochain Excercice :</string>
+    <!-- Exercice Pecs-->
+    <string name="developpe_couché_barre">Développé couché (barre)</string>
+    <string name="developpe_incliné_barre">Développé incliné (barre)</string>
+    <string name="developpe_décliné_barre">Développé décliné (barre)</string>
+    <string name="developpe_couché_haltère">Développé couché (haltère)</string>
+    <string name="developpe_incline_haltère">Développé incliné (haltère)</string>
+    <string name="pompes">Pompes</string>
+    <!--Exercice Dos -->
+    <string name="traction">Traction</string>
+    <string name="traction_assiste">Traction assisté</string>
+    <string name="traction_leste">Traction lesté</string>
+    <string name="tirage_horizontal_poulie">Tirage à la poulie</string>
+    <string name="souleve_de_terre">Soulevé de terre</string>
+    <string name="rowing_barre">Rowing Bar</string>
+
+
 </resources>

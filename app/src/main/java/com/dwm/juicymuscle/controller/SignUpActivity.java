@@ -3,6 +3,7 @@ package com.dwm.juicymuscle.controller;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.dwm.juicymuscle.R;
+import com.dwm.juicymuscle.model.PutData;
 import com.dwm.juicymuscle.model.User;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -110,11 +112,33 @@ public class SignUpActivity extends AppCompatActivity {
         sinscrireButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                user.setUsername(usernameEditText.getText().toString());
+                user.setMdp(mdpEditText.getText().toString());
+
                 Handler handler = new Handler();
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        //TODO: integrer l'API d'inscription ici !!!
+                        String[] field = new String[3];
+                        String[] data = new String[3];
+                        field[0] = "username";
+                        field[1] = "email";
+                        field[2] = "password";
+                        data[0] = user.getUsername();
+                        data[1] = user.getEmail();
+                        data[2] = user.getMdp();
+                        PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/signup.php", "POST", field, data);
+                        if (putData.startPut()) {
+                            if(putData.onComplete()){
+                                String result = putData.getResult();
+                                if(result.equals("Sign Up Success")) { //demarrage de l'activite Home si connexion reussie
+                                    Intent mainActivityIntent = new Intent(SignUpActivity.this, MainActivity.class);
+                                    startActivity(mainActivityIntent);
+                                }else{
+                                    errorMsg.setText(result); //affichage du message d'erreur si connexion echouée
+                                }
+                            }
+                        }
                     }
                 });
             }
