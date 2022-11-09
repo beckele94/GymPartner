@@ -7,6 +7,7 @@ import android.service.autofill.FieldClassification;
 import android.util.Log;
 
 import android.os.Handler;
+import android.util.Patterns;
 
 import com.dwm.juicymuscle.controller.HomeActivity;
 import com.dwm.juicymuscle.controller.MainActivity;
