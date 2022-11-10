@@ -3,6 +3,7 @@ package com.dwm.juicymuscle.controller;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -117,6 +118,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                 Handler handler = new Handler();
                 handler.post(new Runnable() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void run() {
                         String[] field = new String[3];
@@ -137,7 +139,11 @@ public class SignUpActivity extends AppCompatActivity {
                                 }else{
                                     errorMsg.setText(result); //affichage du message d'erreur si connexion echouée
                                 }
+                            }else{
+                                errorMsg.setText("erreur lors de l'inscription");
                             }
+                        }else{
+                            errorMsg.setText("erreur lors de l'inscription");
                         }
                     }
                 });

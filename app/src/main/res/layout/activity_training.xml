@@ -19,7 +19,6 @@
         android:text="@string/accueil"
         android:textColor="@color/white"
         android:textSize="27sp"
-        android:tint="#FFFFFF"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />
@@ -31,7 +30,6 @@
         android:text="@string/prochain_exercice"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:tint="#FFFFFF"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="376dp" />
@@ -44,7 +42,6 @@
         android:drawableStart="@drawable/ic_outline_timer"
         android:textColor="@color/white"
         android:textSize="27sp"
-        android:tint="#FFFFFF"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="162dp"
         tools:layout_editor_absoluteY="16dp" />
@@ -56,7 +53,6 @@
         android:text="@string/editer"
         android:textColor="@color/white"
         android:textSize="27sp"
-        android:tint="#FFFFFF"
         tools:ignore="DuplicateIds,MissingConstraints"
         tools:layout_editor_absoluteX="350dp"
         tools:layout_editor_absoluteY="16dp" />
@@ -82,7 +78,6 @@
             android:text="Tirage à la poulie"
             android:textColor="@color/green"
             android:textSize="20sp"
-            android:tint="@color/white"
             tools:ignore="DuplicateIds,MissingConstraints"
             tools:layout_editor_absoluteX="80dp"
             tools:layout_editor_absoluteY="16dp" />
@@ -113,7 +108,6 @@
             android:text="@string/developpe_couché_haltère"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:tint="#FFFFFF"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="2dp"
             tools:layout_editor_absoluteY="6dp" />

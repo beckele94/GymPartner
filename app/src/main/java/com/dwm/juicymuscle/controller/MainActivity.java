@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
         user = new User();
         setContentView(R.layout.activity_main);
 
-        emailEditText = findViewById(R.id.signup_edittext_email);
-        mdpEditText = findViewById(R.id.signup_edittext_mdp);
+        emailEditText = findViewById(R.id.main_edittext_email);
+        mdpEditText = findViewById(R.id.main_edittext_mdp);
         connexionButton = findViewById(R.id.main_button_connexion);
-        sinscrireButton = findViewById(R.id.signup_button_inscription);
-        errorMsg = findViewById(R.id.signup_textviex_errormsg);
+        sinscrireButton = findViewById(R.id.main_button_inscription);
+        errorMsg = findViewById(R.id.main_textviex_errormsg);
 
         connexionButton.setEnabled(false);
         emailEditText.addTextChangedListener(new TextWatcher() {

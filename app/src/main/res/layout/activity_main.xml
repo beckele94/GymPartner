@@ -19,7 +19,7 @@
         android:textColor="@color/white"/>
 
     <EditText
-        android:id="@+id/signup_edittext_email"
+        android:id="@+id/main_edittext_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
@@ -31,7 +31,7 @@
         android:theme="@style/EditTextTheme"/>
 
     <EditText
-        android:id="@+id/signup_edittext_mdp"
+        android:id="@+id/main_edittext_mdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
@@ -43,7 +43,7 @@
         android:theme="@style/EditTextTheme"/>
 
     <TextView
-        android:id="@+id/signup_textviex_errormsg"
+        android:id="@+id/main_textviex_errormsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
@@ -59,7 +59,7 @@
         android:textColor="@color/greyBackground"
         android:backgroundTint="@color/lightGrey"/>
     <Button
-        android:id="@+id/signup_button_inscription"
+        android:id="@+id/main_button_inscription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
