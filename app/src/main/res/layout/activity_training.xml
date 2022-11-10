@@ -11,52 +11,43 @@
     android:orientation="vertical"
     tools:context=".controller.TrainingActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/training_button_accueil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_baseline_arrow_back"
         android:text="@string/accueil"
         android:textColor="@color/white"
-        android:textSize="27sp"
+        android:textSize="20sp"
+        android:background="@color/greyBackground"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/prochain_exercice"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="376dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0.00.00"
-        android:drawableStart="@drawable/ic_outline_timer"
+        android:drawableEnd="@drawable/ic_outline_timer"
         android:textColor="@color/white"
         android:textSize="27sp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="162dp"
         tools:layout_editor_absoluteY="16dp" />
 
-    <TextView
-        android:id="@+id/textView"
+
+    <Button
+        android:id="@+id/training_button_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/editer"
         android:textColor="@color/white"
-        android:textSize="27sp"
+        android:background="@color/greyBackground"
+        android:textSize="20sp"
         tools:ignore="DuplicateIds,MissingConstraints"
-        tools:layout_editor_absoluteX="350dp"
+        tools:layout_editor_absoluteX="316dp"
         tools:layout_editor_absoluteY="16dp" />
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomNavigationView"
@@ -78,6 +69,7 @@
             android:text="Tirage à la poulie"
             android:textColor="@color/green"
             android:textSize="20sp"
+            android:tint="@color/white"
             tools:ignore="DuplicateIds,MissingConstraints"
             tools:layout_editor_absoluteX="80dp"
             tools:layout_editor_absoluteY="16dp" />
@@ -105,491 +97,13 @@
             android:id="@+id/textView_Nom_Exo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/developpe_couché_haltère"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="6dp" />
-
-        <LinearLayout
-            android:layout_width="379dp"
-            android:layout_height="165dp"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="4dp"
-            tools:layout_editor_absoluteY="50dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView_Serie_Exo1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="1"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Repetition_Exo1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="10"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="DuplicateIds,MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Poids_Exo1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="70"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView_Serie_Exo2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="2"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Repetition_Exo2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="10"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Poids_Exo2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="70"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="DuplicateIds,MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView_Serie_Exo3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="3"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Repetition_Exo3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="10"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Poids_Exo3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="70"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView_Serie_Exo4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="4"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Repetition_Exo4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="10"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Poids_Exo4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="70"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView_Serie_Exo5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="5"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Repetition_Exo5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="10"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="DuplicateIds,MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Poids_Exo5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="80"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="DuplicateIds,MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout_Pro_Exo"
-        android:layout_width="381dp"
-        android:layout_height="227dp"
-        android:background="@color/lightGrey"
-        tools:ignore="MissingConstraints,Orientation"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="416dp">
-
-        <TextView
-            android:id="@+id/textView_Nom_Pro_Exo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/developpe_couché_barre"
+            android:text="TEXTE NOM EXCERCICE"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:tint="#FFFFFF"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="2dp"
             tools:layout_editor_absoluteY="6dp" />
-
-        <LinearLayout
-            android:layout_width="379dp"
-            android:layout_height="164dp"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="47dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView_Serie_Pro_Exo1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="1"
-                    android:textColor="@color/white"
-                    android:textSize="23sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Repetition_Exo6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="10"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Poids_Exo6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="70"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView_Serie_Pro_Exo2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="2"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="DuplicateIds,MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Repetition_Exo7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="10"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="DuplicateIds,MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Poids_Exo7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="70"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="DuplicateIds,MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView_Serie_Pro_Exo3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="3"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Repetition_Exo8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="10"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Poids_Exo8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="70"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView_Serie_Pro_Exo4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="4"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Repetition_Exo9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="10"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Poids_Exo9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="70"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView_Serie_Pro_Exo5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="5"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Repetition_Exo10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="10"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="DuplicateIds,MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-
-                <TextView
-                    android:id="@+id/textView_Poids_Exo10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="80"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:tint="#FFFFFF"
-                    tools:ignore="DuplicateIds,MissingConstraints"
-                    tools:layout_editor_absoluteX="162dp"
-                    tools:layout_editor_absoluteY="16dp" />
-            </LinearLayout>
-        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

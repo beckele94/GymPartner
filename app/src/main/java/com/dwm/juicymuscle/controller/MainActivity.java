@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                             if(putData.onComplete()){
                                 String result = putData.getResult();
                                 if(result.equals("Login Success")) { //demarrage de l'activite Home si connexion reussie
-                                    Intent homeActivityIntent = new Intent(MainActivity.this, HomeActivity.class);
+                                    Intent homeActivityIntent = new Intent(MainActivity.this, TrainingActivity.class); // TODO : REPLACE TRAINING ACTIVITY BU HOME ACTIVITY
                                     startActivity(homeActivityIntent);
                                 }else{
                                     errorMsg.setText(result); //affichage du message d'erreur si connexion echouée
