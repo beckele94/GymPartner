@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraints"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
+    android:layout_height="fill_parent"
     android:background="@color/greyBackground"
     android:baselineAligned="false"
     android:orientation="vertical"
     tools:context=".controller.TrainingActivity">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="@color/greyBackground"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
@@ -26,8 +25,13 @@
             android:drawableStart="@drawable/ic_baseline_arrow_back"
             android:text="@string/accueil"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="18sp"
             tools:ignore="MissingConstraints" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/textView2"
@@ -36,9 +40,14 @@
             android:drawableEnd="@drawable/ic_outline_timer"
             android:text="0.00.00"
             android:textColor="@color/white"
-            android:textSize="27sp"
+            android:textSize="24sp"
             tools:ignore="MissingConstraints" />
 
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/training_button_edit"
@@ -52,42 +61,14 @@
 
     </LinearLayout>
 
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="420dp"
-        android:layout_height="67dp"
-        android:background="@color/lightGrey"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Tirage à la poulie"
-            android:textColor="@color/green"
-            android:textSize="20sp"
-            android:tint="@color/white"
-            tools:ignore="DuplicateIds,MissingConstraints"
-            tools:layout_editor_absoluteX="80dp"
-            tools:layout_editor_absoluteY="16dp" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="103dp"
-            android:layout_height="61dp"
-            android:background="@color/verylightGrey"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_outline_skip_next"
-            tools:layout_editor_absoluteY="2dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/linearLayout_Exo"
-        android:layout_width="386dp"
-        android:layout_height="231dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="300dp"
         android:background="@color/lightGrey"
         tools:ignore="MissingConstraints,Orientation">
 
@@ -103,6 +84,58 @@
             tools:layout_editor_absoluteX="2dp"
             tools:layout_editor_absoluteY="6dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/lightGrey"
+            android:gravity="center"
+            tools:ignore="MissingConstraints">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Tirage à la poulie"
+                android:textAlignment="center"
+                android:textColor="@color/green"
+                android:textSize="20sp"
+                android:tint="@color/white"
+                tools:ignore="DuplicateIds,MissingConstraints" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/training_button_next"
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:background="@color/lightGrey"
+                android:drawableEnd="@drawable/ic_outline_skip_next"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
 
 </LinearLayout>

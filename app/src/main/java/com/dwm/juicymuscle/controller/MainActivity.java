@@ -89,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
         connexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Handler handler = new Handler();
+               Handler handler = new Handler();
+                Intent homeActivityIntent = new Intent(MainActivity.this, TrainingActivity.class);
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
