@@ -5,9 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,21 +39,27 @@ public class EditTrainingActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        listeExercices.add(new Exercice("1", "pompe1", "test", ""));
         adapter = new AdapterListExercices(listeExercices);
         recyclerView.setAdapter(adapter);
 
         retourButton = findViewById(R.id.edittraining_button_retour);
         nomTextView = findViewById(R.id.edittraining_textview_nomtest);
 
-        Handler handler = new Handler();
+        retourButton.setOnClickListener(new View.OnClickListener() { //retour a la page de training
+            @Override
+            public void onClick(View v) {
+                Intent trainingActivityIntent = new Intent(EditTrainingActivity.this, TrainingActivity.class);
+                startActivity(trainingActivityIntent);
+            }
+        });
+
+        Handler handler = new Handler(); //recuperation des exercices et appel du recycler
         handler.post(new Runnable() {
             @Override
             public void run() {
-                //listeExercices.clear();
                 String[] field = new String[0];
                 String[] data = new String[0];
-                PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/listExercices.php", "GET", field, data);
+                PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/getExercices.php", "GET", field, data);
 
                 if (putData.startPut()) {
                     if(putData.onComplete()){
@@ -59,7 +67,6 @@ public class EditTrainingActivity extends AppCompatActivity {
 
                         ServiceApi jsonToobject = new ServiceApi();
                         try {
-                            listeExercices.clear();
                             listeExercices.addAll(jsonToobject.readJsonStream(result));
                         } catch (IOException e) {
                             e.printStackTrace();
