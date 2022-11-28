@@ -7,11 +7,10 @@ import com.dwm.juicymuscle.model.Exercice;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ServiceApi {
 
-    public ArrayList<Exercice> readJsonStream(String in) throws IOException {
+    public ArrayList<Exercice> readJsonExercice(String in) throws IOException {
         JsonReader reader = new JsonReader(new StringReader(in));
         try {
             return readExercicesArray(reader);

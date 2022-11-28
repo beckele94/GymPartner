@@ -43,7 +43,6 @@ public class AdapterListExercices extends RecyclerView.Adapter<AdapterListExerci
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
-        Log.d("test", "passage" + position);
         holder.nom.setText(dataset.get(position).getNom());
     }
 
