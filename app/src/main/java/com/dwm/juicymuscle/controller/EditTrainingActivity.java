@@ -30,15 +30,11 @@ public class EditTrainingActivity extends AppCompatActivity {
     private TextView titleTextView;
     private RecyclerView.Adapter adapter;
 
-    // creating constant keys for shared preferences.
     public static final String SHARED_PREFS = "shared_prefs";
-    // key for storing email.
-    public static final String EMAIL_KEY = "email_key";
-    // key for storing password.
-    public static final String PASSWORD_KEY = "password_key";
-    // variable for shared preferences.
+    public static final String IDUSER_KEY = "iduser_key";
+    public static final String USERNAME_KEY = "username_key";
     SharedPreferences sharedpreferences;
-    String email;
+    String username, iduser;
 
 
     @SuppressLint("SetTextI18n")
@@ -57,11 +53,10 @@ public class EditTrainingActivity extends AppCompatActivity {
         retourButton = findViewById(R.id.edittraining_button_retour);
         titleTextView = findViewById(R.id.edittraining_textview_title);
 
-        // initializing our shared preferences.
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        // getting data from shared prefs and storing it in our string variable.
-        email = sharedpreferences.getString(EMAIL_KEY, null);
-        titleTextView.setText("Exercices disponibles pour " + email + " :" );
+        iduser = sharedpreferences.getString(IDUSER_KEY, null);
+        username = sharedpreferences.getString(USERNAME_KEY, null);
+        titleTextView.setText("Exercices disponibles pour " + username + " :" );
 
         retourButton.setOnClickListener(new View.OnClickListener() { //retour a la page de training
             @Override
@@ -94,8 +89,5 @@ public class EditTrainingActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
     }
 }

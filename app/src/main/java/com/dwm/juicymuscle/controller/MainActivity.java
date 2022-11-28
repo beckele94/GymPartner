@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.dwm.juicymuscle.R;
 import com.dwm.juicymuscle.model.PutData;
 import com.dwm.juicymuscle.model.User;
+import com.dwm.juicymuscle.service.GetUser;
 
 public class MainActivity extends AppCompatActivity {
     private EditText emailEditText;
@@ -28,15 +29,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView errorMsg;
     private User user;
 
-    // creating constant keys for shared preferences.
     public static final String SHARED_PREFS = "shared_prefs";
-    // key for storing email.
     public static final String EMAIL_KEY = "email_key";
-    // key for storing password.
-    public static final String PASSWORD_KEY = "password_key";
-    // variable for shared preferences.
+    public static final String IDUSER_KEY = "iduser_key";
+    public static final String USERNAME_KEY = "username_key";
     SharedPreferences sharedpreferences;
-    String email, password;
+    //String email, id, username;
 
 
     @Override
@@ -51,14 +49,10 @@ public class MainActivity extends AppCompatActivity {
         sinscrireButton = findViewById(R.id.main_button_inscription);
         errorMsg = findViewById(R.id.main_textviex_errormsg);
 
-        // getting the data which is stored in shared preferences.
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        // in shared prefs inside het string method
-        // we are passing key value as EMAIL_KEY and
-        // default value is
-        // set to null if not present.
+        /*email = sharedpreferences.getString("EMAIL_KEY", null);
         email = sharedpreferences.getString("EMAIL_KEY", null);
-        password = sharedpreferences.getString("PASSWORD_KEY", null);
+        email = sharedpreferences.getString("EMAIL_KEY", null);*/
 
         connexionButton.setEnabled(false);
         emailEditText.addTextChangedListener(new TextWatcher() {
@@ -130,13 +124,13 @@ public class MainActivity extends AppCompatActivity {
                                 String result = putData.getResult();
                                 if(result.equals("Login Success")) { //demarrage de l'activite Home si connexion reussie
 
+                                    //recuperation de l'user a partir de la bdd (recup de son id):
+                                    user = GetUser.get(user.getEmail());
 
                                     SharedPreferences.Editor editor = sharedpreferences.edit();
-                                    // below two lines will put values for
-                                    // email and password in shared preferences.
                                     editor.putString(EMAIL_KEY, user.getEmail());
-                                    editor.putString(PASSWORD_KEY, user.getMdp());
-                                    // to save our data with key and value.
+                                    editor.putString(IDUSER_KEY, user.getId());
+                                    editor.putString(USERNAME_KEY, user.getUsername());
                                     editor.apply();
 
                                     Intent homeActivityIntent = new Intent(MainActivity.this, TrainingActivity.class); // TODO : REPLACE TRAINING ACTIVITY BY HOME ACTIVITY
@@ -150,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
         sinscrireButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

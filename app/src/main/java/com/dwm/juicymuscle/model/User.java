@@ -17,9 +17,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class User {
-    private String email;
+    public String id;
+    public String email;
     private String mdp;
-    private String username;
+    public String username;
 
     public User() {
         email="";
@@ -27,11 +28,25 @@ public class User {
         username="";
     }
 
+    public User(String id, String email, String username) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+    }
+
     public boolean hasAValidEmail(){
         Pattern pattern = Pattern.compile("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
                 + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$");
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getEmail() {
