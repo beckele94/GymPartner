@@ -3,6 +3,7 @@ package com.dwm.juicymuscle.service;
 import android.util.JsonReader;
 
 import com.dwm.juicymuscle.model.Exercice;
+import com.dwm.juicymuscle.model.ExoPgrm;
 import com.dwm.juicymuscle.model.Programme;
 import com.dwm.juicymuscle.model.User;
 
@@ -108,6 +109,69 @@ public class ServiceApi {
         }
         reader.endObject();
         return new Programme(id, idUser, nom);
+    }
+
+    public ArrayList<ExoPgrm> readJsonExoPgrm(String in) throws IOException {
+        JsonReader reader = new JsonReader(new StringReader(in));
+        try {
+            return readExoPgrmArray(reader);
+        } finally {
+            reader.close();
+        }
+    }
+
+    public ArrayList<ExoPgrm> readExoPgrmArray(JsonReader reader) throws IOException {
+        ArrayList<ExoPgrm> exoPgrms = new ArrayList<ExoPgrm>();
+
+        reader.beginArray();
+        while (reader.hasNext()) {
+            exoPgrms.add(readExoPgrm(reader));
+        }
+        reader.endArray();
+        return exoPgrms;
+    }
+
+    public ExoPgrm readExoPgrm(JsonReader reader) throws IOException {
+        String id = null;
+        String idPgrm = null;
+        String idExo = null;
+        String nbSerie = null;
+        String nbRep = null;
+        String tempsRepos = null;
+        String poids = null;
+
+        reader.beginObject();
+        while (reader.hasNext()) {
+            String name = reader.nextName();
+            switch (name) {
+                case "id":
+                    id = reader.nextString();
+                    break;
+                case "idPgrm":
+                    idPgrm = reader.nextString();
+                    break;
+                case "idExo":
+                    idExo = reader.nextString();
+                    break;
+                case "nbSerie":
+                    nbSerie = reader.nextString();
+                    break;
+                case "nbRep":
+                    nbRep = reader.nextString();
+                    break;
+                case "tempsRepos":
+                    tempsRepos = reader.nextString();
+                    break;
+                case "poids":
+                    poids = reader.nextString();
+                    break;
+                default:
+                    reader.skipValue();
+                    break;
+            }
+        }
+        reader.endObject();
+        return new ExoPgrm(id, idPgrm, idExo, nbSerie, nbRep, tempsRepos, poids);
     }
 
     public User readJsonUser(String in) throws IOException {
