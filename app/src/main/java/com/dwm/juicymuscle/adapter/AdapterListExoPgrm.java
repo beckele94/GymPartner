@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.ViewHolder>{
     private ArrayList<ExoPgrm> dataset;
+    private ArrayList<Exercice> referenceDataset;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nom;
@@ -25,8 +26,9 @@ public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.
         }
     }
 
-    public AdapterListExoPgrm(ArrayList<ExoPgrm> myDataset){
+    public AdapterListExoPgrm(ArrayList<ExoPgrm> myDataset, ArrayList<Exercice> myReferenceDataset){
         dataset = myDataset;
+        referenceDataset = myReferenceDataset;
     }
 
     @Override
@@ -38,7 +40,13 @@ public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
-        holder.nom.setText(dataset.get(position).getIdExo()); //TODO : creer dans l'api : get1Exo pour avoir ses infos (id, nom, muscle, descr)
+
+        String idExo = dataset.get(position).getIdExo();
+        for(Exercice exercice : referenceDataset) {
+            if (exercice.getId().equals(idExo)) {
+                holder.nom.setText(exercice.getNom());
+            }
+        }
     }
 
     @Override

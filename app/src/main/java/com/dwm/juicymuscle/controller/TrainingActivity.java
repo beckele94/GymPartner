@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -24,10 +25,11 @@ import java.util.ArrayList;
 
 public class TrainingActivity extends AppCompatActivity {
     private ArrayList<ExoPgrm> listeExoPgrm = new ArrayList<ExoPgrm>();
+    private ArrayList<Exercice> listeExercices = new ArrayList<Exercice>();
 
     private Button editButton;
     private Button accueilButton;
-    private RecyclerView.Adapter adapter;
+    private AdapterListExoPgrm adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class TrainingActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new AdapterListExoPgrm(listeExoPgrm);
+        adapter = new AdapterListExoPgrm(listeExoPgrm, listeExercices);
         recyclerView.setAdapter(adapter);
 
         editButton = findViewById(R.id.training_button_edit);
@@ -60,7 +62,7 @@ public class TrainingActivity extends AppCompatActivity {
             }
         });
 
-
+        //TODO : FACTORISER les requete api en creant une methode dans serviceApi
         Handler handler = new Handler(); //recuperation des exercices et appel du recycler
         handler.post(new Runnable() {
             @Override
@@ -68,7 +70,7 @@ public class TrainingActivity extends AppCompatActivity {
                 String[] field = new String[1];
                 String[] data = new String[1];
                 field[0] = "idPgrm";
-                data[0] = "1"; //TODO : recuper la valeur de l'idPgrm a partir de la selection de l'entrainement (dans la page home)
+                data[0] = "5"; //TODO : recuper la valeur de l'idPgrm a partir de la selection de l'entrainement (dans la page home)
                 PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/getExoPgrm.php", "GET", field, data);
 
                 if (putData.startPut()) {
@@ -81,9 +83,27 @@ public class TrainingActivity extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        adapter.notifyDataSetChanged();
                     }
                 }
+
+                field = new String[0];
+                data = new String[0];
+                putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/getExercices.php", "GET", field, data);
+
+                if (putData.startPut()) {
+                    if(putData.onComplete()){
+                        String result = putData.getResult();
+
+                        ServiceApi jsonToObject = new ServiceApi();
+                        try {
+                            listeExercices.addAll(jsonToObject.readJsonExercice(result));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                adapter.notifyDataSetChanged();
+                //adapter.updateData(listeExoPgrm); //TODO: pq cela vide la liste ???
             }
         });
     }
