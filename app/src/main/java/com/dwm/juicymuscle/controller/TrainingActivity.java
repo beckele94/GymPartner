@@ -14,11 +14,12 @@ import com.dwm.juicymuscle.R;
 import com.dwm.juicymuscle.adapter.AdapterListExercices;
 import com.dwm.juicymuscle.adapter.AdapterListExoPgrm;
 import com.dwm.juicymuscle.model.Exercice;
+import com.dwm.juicymuscle.model.ExoPgrm;
 
 import java.util.ArrayList;
 
 public class TrainingActivity extends AppCompatActivity {
-    private ArrayList<Exercice> listeExoPgrm = new ArrayList<Exercice>();
+    private ArrayList<ExoPgrm> listeExoPgrm = new ArrayList<ExoPgrm>();
 
     private Button editButton;
     private Button accueilButton;
@@ -56,7 +57,7 @@ public class TrainingActivity extends AppCompatActivity {
         });
 
 
-        listeExoPgrm.add(new Exercice("1","Pompes","Pecs","Faire pompes"));
+        listeExoPgrm.add(new ExoPgrm("1","1","2","5","12","60","100"));
         adapter.notifyDataSetChanged();
 
     }

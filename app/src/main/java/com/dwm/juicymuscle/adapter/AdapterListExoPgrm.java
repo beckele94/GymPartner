@@ -9,11 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dwm.juicymuscle.R;
 import com.dwm.juicymuscle.model.Exercice;
+import com.dwm.juicymuscle.model.ExoPgrm;
 
 import java.util.ArrayList;
 
 public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.ViewHolder>{
-    private ArrayList<Exercice> dataset;
+    private ArrayList<ExoPgrm> dataset;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nom;
@@ -24,7 +25,7 @@ public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.
         }
     }
 
-    public AdapterListExoPgrm(ArrayList<Exercice> myDataset){
+    public AdapterListExoPgrm(ArrayList<ExoPgrm> myDataset){
         dataset = myDataset;
     }
 
@@ -37,7 +38,7 @@ public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
-        holder.nom.setText(dataset.get(position).getNom());
+        holder.nom.setText(dataset.get(position).getIdPgrm());
     }
 
     @Override
@@ -45,7 +46,7 @@ public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.
         return dataset.size();
     }
 
-    public void updateData(ArrayList<Exercice> viewModels) {
+    public void updateData(ArrayList<ExoPgrm> viewModels) {
         dataset.clear();
         dataset.addAll(viewModels);
         notifyDataSetChanged();
