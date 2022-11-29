@@ -60,42 +60,48 @@
             tools:ignore="DuplicateIds,MissingConstraints" />
 
     </LinearLayout>
-
+<!--recycler view-->
     <LinearLayout
-        android:id="@+id/linearLayout_Exo"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="300dp"
-        android:background="@color/lightGrey"
-        tools:ignore="MissingConstraints,Orientation">
+        android:layout_height="wrap_content"
+        tools:context=".controller.HomeActivity"
+        android:orientation="vertical"
+        android:background="@color/greyBackground">
 
         <TextView
-            android:id="@+id/textView_Nom_Exo"
+            android:id="@+id/edittraining_textview_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TEXTE NOM EXCERCICE"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:tint="#FFFFFF"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="6dp" />
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="20sp"
+            android:text="@string/exercices_disponibles"
+            android:textColor="@color/white"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/edittraining_recyclerview_listexoprgm"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
 
     </LinearLayout>
-
+<!--End RecyclerView-->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/LinearLayoutNavigationView"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingTop="50dip"
             android:background="@color/lightGrey"
             android:gravity="center"
             tools:ignore="MissingConstraints">
