@@ -100,8 +100,8 @@
             android:id="@+id/LinearLayoutNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:layout_alignParentBottom="true"
-            android:paddingTop="50dip"
             android:background="@color/lightGrey"
             android:gravity="center"
             tools:ignore="MissingConstraints">
@@ -117,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Tirage à la poulie"
+                android:layout_marginVertical="15dp"
                 android:textAlignment="center"
                 android:textColor="@color/green"
                 android:textSize="20sp"
