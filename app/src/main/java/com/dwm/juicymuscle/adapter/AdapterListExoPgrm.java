@@ -38,7 +38,7 @@ public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
-        holder.nom.setText(dataset.get(position).getIdPgrm());
+        holder.nom.setText(dataset.get(position).getIdExo()); //TODO : creer dans l'api : get1Exo pour avoir ses infos (id, nom, muscle, descr)
     }
 
     @Override
