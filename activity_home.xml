@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,78 +12,27 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
         android:text="@string/accueil"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="309dp"
-        android:layout_margin="20dp"
-        android:background="@color/lightGrey">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:orientation="vertical">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/fragment_main_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-           </ LineaLayout>
-
-
-    </ScrollView>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/circle_button"
-
-
-        android:padding="15dp"
-        android:text="+"
-        android:textSize="30dp"
-        android:gravity=""/>
+        android:textSize="30sp"
+        android:textColor="@color/white"/>
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
+        android:id="@+id/edittraining_textview_title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Historique:"
-        android:textColor="@color/white"
-        android:layout_margin="20dp"/>
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="Programmes"
+        android:textColor="@color/white"/>
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/edittraining_recyclerview_listprogrammes"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/lightGrey">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id2/fragment_main_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </ScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
