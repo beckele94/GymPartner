@@ -54,9 +54,9 @@ public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.
         return dataset.size();
     }
 
-    public void updateData(ArrayList<ExoPgrm> viewModels) {
+    /*public void updateData(ArrayList<ExoPgrm> viewModels) {
         dataset.clear();
         dataset.addAll(viewModels);
         notifyDataSetChanged();
-    }
+    }*/
 }

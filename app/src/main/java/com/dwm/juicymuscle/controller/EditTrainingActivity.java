@@ -16,7 +16,10 @@ import android.widget.TextView;
 
 import com.dwm.juicymuscle.R;
 import com.dwm.juicymuscle.adapter.AdapterListExercices;
+import com.dwm.juicymuscle.adapter.AdapterListExoPgrm;
+import com.dwm.juicymuscle.adapter.AdapterModifyPgrm;
 import com.dwm.juicymuscle.model.Exercice;
+import com.dwm.juicymuscle.model.ExoPgrm;
 import com.dwm.juicymuscle.model.PutData;
 import com.dwm.juicymuscle.service.ServiceApi;
 
@@ -25,10 +28,12 @@ import java.util.ArrayList;
 
 public class EditTrainingActivity extends AppCompatActivity {
     private ArrayList<Exercice> listeExercices = new ArrayList<Exercice>();
+    private ArrayList<ExoPgrm> listeExoPgrm = new ArrayList<ExoPgrm>();
 
     private Button retourButton;
     private TextView titleTextView;
-    private RecyclerView.Adapter adapter;
+    private RecyclerView.Adapter adapterListeExo;
+    private RecyclerView.Adapter adapterListeExoPgrm;
 
     public static final String SHARED_PREFS = "shared_prefs";
     public static final String IDUSER_KEY = "iduser_key";
@@ -43,22 +48,33 @@ public class EditTrainingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_training);
 
+        //RecyclerView des exo du programme :
+        RecyclerView recyclerViewExoPgrm = findViewById(R.id.edittraining_recyclerview_modifypgrm);
+        recyclerViewExoPgrm.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManagerExoPgrm = new LinearLayoutManager(this);
+        recyclerViewExoPgrm.setLayoutManager(layoutManagerExoPgrm);
+        adapterListeExoPgrm = new AdapterModifyPgrm(listeExoPgrm, listeExercices);
+        recyclerViewExoPgrm.setAdapter(adapterListeExoPgrm);
+
+        //RecyclerView de tous les exo
         RecyclerView recyclerView = findViewById(R.id.edittraining_recyclerview_listexercice);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new AdapterListExercices(listeExercices);
-        recyclerView.setAdapter(adapter);
+        adapterListeExo = new AdapterListExercices(listeExercices);
+        recyclerView.setAdapter(adapterListeExo);
 
         retourButton = findViewById(R.id.edittraining_button_retour);
         titleTextView = findViewById(R.id.edittraining_textview_title);
 
+        //recupération des variables partagées
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
         iduser = sharedpreferences.getString(IDUSER_KEY, null);
         username = sharedpreferences.getString(USERNAME_KEY, null);
         titleTextView.setText("Exercices disponibles pour " + username + " :" );
 
-        retourButton.setOnClickListener(new View.OnClickListener() { //retour a la page de training
+        //bouton retour a la page de training
+        retourButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent trainingActivityIntent = new Intent(EditTrainingActivity.this, TrainingActivity.class);
@@ -66,10 +82,12 @@ public class EditTrainingActivity extends AppCompatActivity {
             }
         });
 
-        Handler handler = new Handler(); //recuperation des exercices et appel du recycler
+        //requetes API pour recup les exo du prgm et la liste de tous les exo dispo
+        Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
+                //PRemiere requete qui recup tous les exo dispo
                 String[] field = new String[0];
                 String[] data = new String[0];
                 PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/getExercices.php", "GET", field, data);
@@ -84,7 +102,28 @@ public class EditTrainingActivity extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        adapter.notifyDataSetChanged();
+                        adapterListeExo.notifyDataSetChanged();
+                    }
+                }
+
+                //deuxieme requete qui recup les exo de l'entrainement
+                field = new String[1];
+                data = new String[1];
+                field[0] = "idPgrm";
+                data[0] = "5"; //TODO : recuper la valeur de l'idPgrm a partir de la selection de l'entrainement (dans la page home)
+                putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/getExoPgrm.php", "GET", field, data);
+
+                if (putData.startPut()) {
+                    if(putData.onComplete()){
+                        String result = putData.getResult();
+
+                        ServiceApi jsonToObject = new ServiceApi();
+                        try {
+                            listeExoPgrm.addAll(jsonToObject.readJsonExoPgrm(result));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        adapterListeExoPgrm.notifyDataSetChanged();
                     }
                 }
             }

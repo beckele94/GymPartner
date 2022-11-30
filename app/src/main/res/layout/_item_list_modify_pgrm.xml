@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="5dp"
+    android:layout_marginHorizontal="20dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/itemmodifypgrm_textview_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/itemmodifypgrm_button_del"
+        android:layout_width="40sp"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:textSize="20sp"
+        android:textColor="@color/redError" />
+
+    <Button
+        android:id="@+id/itemmodifypgrm_button_up"
+        android:layout_width="40sp"
+        android:layout_height="wrap_content"
+        android:text="▲"
+        android:textSize="20sp"
+        android:textColor="@color/green" />
+
+    <Button
+        android:id="@+id/itemmodifypgrm_button_down"
+        android:layout_width="40sp"
+        android:layout_height="wrap_content"
+        android:text="▼"
+        android:textSize="20sp"
+        android:textColor="@color/green" />
+
+</LinearLayout>
