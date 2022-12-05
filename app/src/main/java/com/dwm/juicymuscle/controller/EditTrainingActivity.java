@@ -90,7 +90,7 @@ public class EditTrainingActivity extends AppCompatActivity {
                 //PRemiere requete qui recup tous les exo dispo
                 String[] field = new String[0];
                 String[] data = new String[0];
-                PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/getExercices.php", "GET", field, data);
+                PutData putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/getExercices.php", "GET", field, data);
 
                 if (putData.startPut()) {
                     if(putData.onComplete()){
@@ -111,7 +111,7 @@ public class EditTrainingActivity extends AppCompatActivity {
                 data = new String[1];
                 field[0] = "idPgrm";
                 data[0] = "5"; //TODO : recuper la valeur de l'idPgrm a partir de la selection de l'entrainement (dans la page home)
-                putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/getExoPgrm.php", "GET", field, data);
+                putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/getExoPgrm.php", "GET", field, data);
 
                 if (putData.startPut()) {
                     if(putData.onComplete()){

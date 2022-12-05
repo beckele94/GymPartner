@@ -17,7 +17,7 @@ public class GetUser {
         String[] data = new String[1];
         field[0] = "email";
         data[0] = email;
-        PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/getUser.php", "POST", field, data);
+        PutData putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/getUser.php", "POST", field, data);
         if (putData.startPut()) {
             if(putData.onComplete()){
                 String result = putData.getResult();

@@ -71,7 +71,7 @@ public class TrainingActivity extends AppCompatActivity {
                 String[] data = new String[1];
                 field[0] = "idPgrm";
                 data[0] = "5"; //TODO : recuper la valeur de l'idPgrm a partir de la selection de l'entrainement (dans la page home)
-                PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/getExoPgrm.php", "GET", field, data);
+                PutData putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/getExoPgrm.php", "GET", field, data);
 
                 if (putData.startPut()) {
                     if(putData.onComplete()){
@@ -88,7 +88,7 @@ public class TrainingActivity extends AppCompatActivity {
 
                 field = new String[0];
                 data = new String[0];
-                putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/getExercices.php", "GET", field, data);
+                putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/getExercices.php", "GET", field, data);
 
                 if (putData.startPut()) {
                     if(putData.onComplete()){

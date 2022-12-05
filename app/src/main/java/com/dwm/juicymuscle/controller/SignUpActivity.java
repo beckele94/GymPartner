@@ -129,7 +129,7 @@ public class SignUpActivity extends AppCompatActivity {
                         data[0] = user.getUsername();
                         data[1] = user.getEmail();
                         data[2] = user.getMdp();
-                        PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/signup.php", "POST", field, data);
+                        PutData putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/signup.php", "POST", field, data);
                         if (putData.startPut()) {
                             if(putData.onComplete()){
                                 String result = putData.getResult();

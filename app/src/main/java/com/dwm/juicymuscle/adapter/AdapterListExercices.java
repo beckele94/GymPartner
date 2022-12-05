@@ -59,7 +59,7 @@ public class AdapterListExercices extends RecyclerView.Adapter<AdapterListExerci
                         data[0] = "5"; //TODO : recuper la valeur de l'idPgrm a partir de la selection de l'entrainement
                         field[1] = "idExo";
                         data[1] = dataset.get(holder.getAdapterPosition()).getId();
-                        PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/addExoPgrm.php", "POST", field, data);
+                        PutData putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/addExoPgrm.php", "POST", field, data);
 
                         if (putData.startPut()) {
                             if (putData.onComplete()) {

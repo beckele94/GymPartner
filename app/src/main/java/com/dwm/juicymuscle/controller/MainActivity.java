@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                         field[1] = "password";
                         data[0] = user.getEmail();
                         data[1] = user.getMdp();
-                        PutData putData = new PutData("http://ulysseguillot.fr/apiLoginJuicyMuscle/login.php", "POST", field, data);
+                        PutData putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/login.php", "POST", field, data);
                         if (putData.startPut()) {
                             if(putData.onComplete()){
                                 String result = putData.getResult();
