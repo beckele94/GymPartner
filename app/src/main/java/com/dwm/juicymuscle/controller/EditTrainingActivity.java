@@ -36,10 +36,9 @@ public class EditTrainingActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapterListeExoPgrm;
 
     public static final String SHARED_PREFS = "shared_prefs";
-    public static final String IDUSER_KEY = "iduser_key";
-    public static final String USERNAME_KEY = "username_key";
-    SharedPreferences sharedpreferences;
-    String username, iduser;
+    public static final String IDPGRM_KEY = "idpgrm_key";
+    public SharedPreferences sharedpreferences;
+    private String idPgrm;
 
 
     @SuppressLint("SetTextI18n")
@@ -53,7 +52,7 @@ public class EditTrainingActivity extends AppCompatActivity {
         recyclerViewExoPgrm.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManagerExoPgrm = new LinearLayoutManager(this);
         recyclerViewExoPgrm.setLayoutManager(layoutManagerExoPgrm);
-        adapterListeExoPgrm = new AdapterModifyPgrm(listeExoPgrm, listeExercices);
+        adapterListeExoPgrm = new AdapterModifyPgrm(listeExoPgrm, listeExercices, EditTrainingActivity.this);
         recyclerViewExoPgrm.setAdapter(adapterListeExoPgrm);
 
         //RecyclerView de tous les exo
@@ -61,7 +60,7 @@ public class EditTrainingActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapterListeExo = new AdapterListExercices(listeExercices);
+        adapterListeExo = new AdapterListExercices(listeExercices, this, adapterListeExoPgrm, listeExoPgrm);
         recyclerView.setAdapter(adapterListeExo);
 
         retourButton = findViewById(R.id.edittraining_button_retour);
@@ -69,9 +68,9 @@ public class EditTrainingActivity extends AppCompatActivity {
 
         //recupération des variables partagées
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        iduser = sharedpreferences.getString(IDUSER_KEY, null);
-        username = sharedpreferences.getString(USERNAME_KEY, null);
-        titleTextView.setText("Exercices disponibles pour " + username + " :" );
+        idPgrm = sharedpreferences.getString(IDPGRM_KEY, null);
+
+        titleTextView.setText("Exercices disponibles :" );
 
         //bouton retour a la page de training
         retourButton.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +109,7 @@ public class EditTrainingActivity extends AppCompatActivity {
                 field = new String[1];
                 data = new String[1];
                 field[0] = "idPgrm";
-                data[0] = "5"; //TODO : recuper la valeur de l'idPgrm a partir de la selection de l'entrainement (dans la page home)
+                data[0] = idPgrm;
                 putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/getExoPgrm.php", "GET", field, data);
 
                 if (putData.startPut()) {

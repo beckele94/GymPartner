@@ -1,5 +1,7 @@
 package com.dwm.juicymuscle.adapter;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,11 @@ import java.util.ArrayList;
 public class AdapterModifyPgrm extends RecyclerView.Adapter<AdapterModifyPgrm.ViewHolder>{
     private ArrayList<ExoPgrm> listExoPgrm;
     private ArrayList<Exercice> referenceExos;
+    public Context context;
+
+    public static final String SHARED_PREFS = "shared_prefs";
+    public static final String IDPGRM_KEY = "idpgrm_key";
+    public SharedPreferences sharedpreferences;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nom;
@@ -38,9 +45,10 @@ public class AdapterModifyPgrm extends RecyclerView.Adapter<AdapterModifyPgrm.Vi
         }
     }
 
-    public AdapterModifyPgrm(ArrayList<ExoPgrm> myDataset, ArrayList<Exercice> myReferenceDataset){
+    public AdapterModifyPgrm(ArrayList<ExoPgrm> myDataset, ArrayList<Exercice> myReferenceDataset, Context context){
         listExoPgrm = myDataset;
         referenceExos = myReferenceDataset;
+        this.context = context;
     }
 
     @Override
