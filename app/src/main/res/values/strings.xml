@@ -31,6 +31,8 @@
     <string name="programmes">Programmes</string>
     <string name="nouveau_programme">Nouveau programme</string>
     <string name="settings">settings</string>
+    <string name="modifier">Modifier</string>
+    <string name="supprimer">Supprimer</string>
 
 
 </resources>

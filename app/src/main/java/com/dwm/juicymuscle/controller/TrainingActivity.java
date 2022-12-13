@@ -57,8 +57,8 @@ public class TrainingActivity extends AppCompatActivity {
         accueilButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent editTrainingActivityIntent = new Intent(TrainingActivity.this, HomeActivity.class);
-                startActivity(editTrainingActivityIntent);
+                Intent HomeActivityIntent = new Intent(TrainingActivity.this, HomeActivity.class);
+                startActivity(HomeActivityIntent);
             }
         });
 
