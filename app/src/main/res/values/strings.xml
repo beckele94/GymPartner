@@ -33,6 +33,8 @@
     <string name="settings">settings</string>
     <string name="modifier">Modifier</string>
     <string name="supprimer">Supprimer</string>
+    <string name="creer">creer</string>
+    <string name="nom_du_programme">Nom du programme</string>
 
 
 </resources>
