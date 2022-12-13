@@ -1,5 +1,6 @@
 package com.dwm.juicymuscle.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +17,17 @@ import java.util.ArrayList;
 public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.ViewHolder>{
     private ArrayList<ExoPgrm> dataset;
     private ArrayList<Exercice> referenceDataset;
+    private String detailExo;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nom;
+        public TextView details;
+
 
         public ViewHolder(View v) {
             super(v);
             nom = (TextView) v.findViewById(R.id.itemlistexopgrm_textview_nom);
+            details = (TextView) v.findViewById(R.id.itemlistexopgrm_textview_details);
         }
     }
 
@@ -40,6 +45,17 @@ public class AdapterListExoPgrm extends RecyclerView.Adapter<AdapterListExoPgrm.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
+
+        int i;
+        String detailExo ="Série" + "     " + "Rep" + "     " + "     " + "Poids" + "            " + "Repos" + "\n";
+        for (i=0; i < Integer.parseInt(dataset.get(position).getNbSerie()); i++){
+            detailExo += i+1 + "               " + dataset.get(position).getNbRep() + "               " + dataset.get(position).getPoids() + "               " + dataset.get(position).getTempsRepos() + "\n";
+            Log.d("test", dataset.get(position).getNbSerie());
+        };
+        Log.d("test1", dataset.get(position).getNbSerie());
+        holder.details.setText(detailExo);
+
+        /*holder.details.setText(dataset.get(position).getNbSerie());*/
 
         String idExo = dataset.get(position).getIdExo();
         for(Exercice exercice : referenceDataset) {

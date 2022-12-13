@@ -6,10 +6,19 @@
     android:layout_height="wrap_content"
     android:paddingVertical="5dp"
     android:layout_marginHorizontal="20dp"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/itemlistexopgrm_textview_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:layout_marginBottom="20dp"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/itemlistexopgrm_textview_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"

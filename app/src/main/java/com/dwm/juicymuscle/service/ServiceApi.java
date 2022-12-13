@@ -1,6 +1,7 @@
 package com.dwm.juicymuscle.service;
 
 import android.util.JsonReader;
+import android.util.Log;
 
 import com.dwm.juicymuscle.model.Exercice;
 import com.dwm.juicymuscle.model.ExoPgrm;
