@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraints"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/greyBackground"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    tools:context=".controller.TrainingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greyBackground"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/training_button_accueil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/greyBackground"
+            android:drawableStart="@drawable/ic_baseline_arrow_back"
+            android:text="@string/accueil"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:ignore="MissingConstraints" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textview_minuteur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_outline_timer"
+            android:text="00.90"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
+
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/training_button_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/greyBackground"
+            android:text="@string/editer"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            tools:ignore="DuplicateIds,MissingConstraints" />
+
+    </LinearLayout>
+<!--recycler view-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".controller.HomeActivity"
+        android:orientation="vertical"
+        android:background="@color/greyBackground">
+
+        <TextView
+            android:id="@+id/edittraining_textview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="20sp"
+            android:text="@string/exercices_disponibles"
+            android:textColor="@color/white"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/edittraining_recyclerview_listexoprgm"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+    </LinearLayout>
+<!--End RecyclerView-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/lightGrey"
+            android:gravity="center"
+            tools:ignore="MissingConstraints">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Tirage à la poulie"
+                android:layout_marginVertical="15dp"
+                android:textAlignment="center"
+                android:textColor="@color/green"
+                android:textSize="20sp"
+                android:tint="@color/white"
+                tools:ignore="DuplicateIds,MissingConstraints" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/training_button_next"
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:background="@color/lightGrey"
+                android:drawableEnd="@drawable/ic_outline_skip_next"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                tools:ignore="MissingConstraints" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
