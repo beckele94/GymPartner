@@ -52,12 +52,39 @@ public class AdapterModifyPgrm extends RecyclerView.Adapter<AdapterModifyPgrm.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
+        String idExoPgrm = listExoPgrm.get(position).getId();
         String idExo = listExoPgrm.get(position).getIdExo();
+        int posActuelle = position;
         for(Exercice exercice : referenceExos) {
             if (exercice.getId().equals(idExo)) {
                 holder.nom.setText(exercice.getNom());
             }
         }
+
+        holder.del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Handler handler = new Handler(); //recuperation des exercices et appel du recycler
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] field = new String[1];
+                        String[] data = new String[1];
+                        field[0] = "id";
+                        data[0] = idExoPgrm;
+                        PutData putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/deleteExoPgrm.php", "POST", field, data);
+
+                        if (putData.startPut()) {
+                            if (putData.onComplete()) {
+                                String result = putData.getResult(); //tester le resultat pour savoir si tout s'est bien passé
+                                listExoPgrm.remove(posActuelle);
+                                notifyDataSetChanged();
+                            }
+                        }
+                    }
+                });
+            }
+        });
     }
 
     @Override
