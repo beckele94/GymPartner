@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String EMAIL_KEY = "email_key";
     public static final String IDUSER_KEY = "iduser_key";
     public static final String USERNAME_KEY = "username_key";
-    SharedPreferences sharedpreferences;
-    //String email, id, username;
+    public SharedPreferences sharedpreferences;
+    //String email, idUser, username;
 
 
     @Override
@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         errorMsg = findViewById(R.id.main_textviex_errormsg);
 
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        /*email = sharedpreferences.getString("EMAIL_KEY", null);
-        email = sharedpreferences.getString("EMAIL_KEY", null);
-        email = sharedpreferences.getString("EMAIL_KEY", null);*/
+        /*email = sharedpreferences.getString(EMAIL_KEY, null);
+        email = sharedpreferences.getString(EMAIL_KEY, null);
+        email = sharedpreferences.getString(EMAIL_KEY, null);*/
 
         connexionButton.setEnabled(false);
         emailEditText.addTextChangedListener(new TextWatcher() {

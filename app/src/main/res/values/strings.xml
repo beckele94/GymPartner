@@ -28,6 +28,9 @@
     <string name="exercices_disponibles">Exercices disponibles :</string>
     <string name="entrainement">Entrainement</string>
     <string name="mon_programme">Mon programme :</string>
+    <string name="programmes">Programmes</string>
+    <string name="nouveau_programme">Nouveau programme</string>
+    <string name="settings">settings</string>
 
 
 </resources>
