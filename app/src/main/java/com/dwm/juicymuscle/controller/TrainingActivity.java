@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -31,6 +33,11 @@ public class TrainingActivity extends AppCompatActivity {
     private Button accueilButton;
     private AdapterListExoPgrm adapter;
 
+    public static final String SHARED_PREFS = "shared_prefs";
+    public static final String IDPGRM_KEY = "idpgrm_key";
+    public SharedPreferences sharedpreferences;
+    private String idPgrm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +53,8 @@ public class TrainingActivity extends AppCompatActivity {
         editButton = findViewById(R.id.training_button_edit);
         accueilButton = findViewById(R.id.training_button_accueil);
 
+        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        idPgrm = sharedpreferences.getString(IDPGRM_KEY, null);
 
         editButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -70,7 +79,7 @@ public class TrainingActivity extends AppCompatActivity {
                 String[] field = new String[1];
                 String[] data = new String[1];
                 field[0] = "idPgrm";
-                data[0] = "5"; //TODO : recuper la valeur de l'idPgrm a partir de la selection de l'entrainement (dans la page home)
+                data[0] = idPgrm;
                 PutData putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/getExoPgrm.php", "GET", field, data);
 
                 if (putData.startPut()) {

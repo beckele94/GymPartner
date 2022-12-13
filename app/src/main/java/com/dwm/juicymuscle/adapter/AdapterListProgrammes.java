@@ -1,6 +1,8 @@
 package com.dwm.juicymuscle.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -14,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dwm.juicymuscle.R;
 import com.dwm.juicymuscle.controller.HomeActivity;
+import com.dwm.juicymuscle.controller.MainActivity;
+import com.dwm.juicymuscle.controller.TrainingActivity;
 import com.dwm.juicymuscle.model.Exercice;
 import com.dwm.juicymuscle.model.ExoPgrm;
 import com.dwm.juicymuscle.model.Programme;
@@ -23,6 +27,10 @@ import java.util.ArrayList;
 public class AdapterListProgrammes extends RecyclerView.Adapter<AdapterListProgrammes.ViewHolder>{
     private ArrayList<Programme> dataset;
     public Context context;
+
+    public static final String SHARED_PREFS = "shared_prefs";
+    public static final String IDPGRM_KEY = "idpgrm_key";
+    public SharedPreferences sharedpreferences;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nom;
@@ -51,8 +59,8 @@ public class AdapterListProgrammes extends RecyclerView.Adapter<AdapterListProgr
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
-
-        holder.nom.setText(dataset.get(position).getNom());
+        int pos = position;
+        holder.nom.setText(dataset.get(pos).getNom());
 
         holder.settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +83,19 @@ public class AdapterListProgrammes extends RecyclerView.Adapter<AdapterListProgr
                     }
                 });
                 popupMenu.show();
+            }
+        });
+
+        holder.nom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedpreferences = context.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putString(IDPGRM_KEY, dataset.get(pos).getId());
+                editor.apply();
+
+                Intent trainingActivityIntent = new Intent(context, TrainingActivity.class);
+                context.startActivity(trainingActivityIntent);
             }
         });
     }

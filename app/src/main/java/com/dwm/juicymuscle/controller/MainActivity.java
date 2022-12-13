@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                                     editor.putString(USERNAME_KEY, user.getUsername());
                                     editor.apply();
 
-                                    Intent homeActivityIntent = new Intent(MainActivity.this, TrainingActivity.class); // TODO : REPLACE TRAINING ACTIVITY BY HOME ACTIVITY (et creer le logout dans home activity)
+                                    Intent homeActivityIntent = new Intent(MainActivity.this, HomeActivity.class);
                                     startActivity(homeActivityIntent);
                                 }else{
                                     errorMsg.setText(result); //affichage du message d'erreur si connexion echouée
