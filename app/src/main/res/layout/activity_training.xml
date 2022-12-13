@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraints"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="match_parent"
     android:background="@color/greyBackground"
-    android:baselineAligned="false"
     android:orientation="vertical"
     tools:context=".controller.TrainingActivity">
 
@@ -86,9 +85,10 @@
 <!--recycler view-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".controller.HomeActivity"
+        android:layout_height="0px"
         android:orientation="vertical"
+        android:layout_weight="1"
+        tools:context=".controller.HomeActivity"
         android:background="@color/greyBackground">
 
         <TextView
@@ -110,60 +110,60 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="200dp"
+            android:layout_marginBottom="100dp"
             />
 
     </LinearLayout>
 <!--End RecyclerView-->
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightGrey"
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:gravity="center"
+            android:text="Tirage à la poulie"
+            android:textAlignment="center"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            android:tint="@color/white"
+            tools:ignore="DuplicateIds,MissingConstraints" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/training_button_next"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:background="@color/lightGrey"
+            android:drawableEnd="@drawable/ic_outline_skip_next"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/LinearLayoutNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/lightGrey"
-            android:gravity="center"
-            tools:ignore="MissingConstraints">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Tirage à la poulie"
-                android:layout_marginVertical="15dp"
-                android:textAlignment="center"
-                android:textColor="@color/green"
-                android:textSize="20sp"
-                android:tint="@color/white"
-                tools:ignore="DuplicateIds,MissingConstraints" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/training_button_next"
-                android:layout_width="50dp"
-                android:layout_height="fill_parent"
-                android:background="@color/lightGrey"
-                android:drawableEnd="@drawable/ic_outline_skip_next"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                tools:ignore="MissingConstraints" />
-
-        </LinearLayout>
 
     </RelativeLayout>
 
