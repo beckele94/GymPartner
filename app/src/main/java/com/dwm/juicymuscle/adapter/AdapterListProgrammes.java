@@ -3,6 +3,7 @@ package com.dwm.juicymuscle.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ import com.dwm.juicymuscle.controller.TrainingActivity;
 import com.dwm.juicymuscle.model.Exercice;
 import com.dwm.juicymuscle.model.ExoPgrm;
 import com.dwm.juicymuscle.model.Programme;
+import com.dwm.juicymuscle.model.PutData;
 
 import java.util.ArrayList;
 
@@ -75,7 +77,24 @@ public class AdapterListProgrammes extends RecyclerView.Adapter<AdapterListProgr
                                 //handle menu1 click
                                 return true;
                             case R.id.home_menu_supprimer:
-                                //handle menu2 click
+                                Handler handler = new Handler(); //recuperation des exercices et appel du recycler
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        String[] field = new String[1];
+                                        String[] data = new String[1];
+                                        field[0] = "id";
+                                        data[0] = dataset.get(pos).getId();
+                                        PutData putData = new PutData("https://ulysseguillot.fr/apiLoginJuicyMuscle/deleteProgramme.php", "POST", field, data);
+
+                                        if (putData.startPut()) {
+                                            if (putData.onComplete()) {
+                                                dataset.remove(pos);
+                                                notifyDataSetChanged();
+                                            }
+                                        }
+                                    }
+                                });
                                 return true;
                             default:
                                 return false;
