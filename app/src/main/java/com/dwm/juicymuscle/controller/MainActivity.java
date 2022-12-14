@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -136,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
                                     startActivity(homeActivityIntent);
                                 }else{
                                     errorMsg.setText(result); //affichage du message d'erreur si connexion echouée
+                                    Vibrator vib=(Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+                                    vib.vibrate(1000);
                                 }
                             }
                         }
